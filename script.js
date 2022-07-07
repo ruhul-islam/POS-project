@@ -49,3 +49,4 @@ const beverages = [
     itemPrice: 4,
   },
 ];
+console.dir(entrees);
