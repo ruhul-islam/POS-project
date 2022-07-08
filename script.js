@@ -68,6 +68,16 @@ const dessertsContainer = document.querySelector(".desserts");
 dessertsContainer.classList.add("menu-container");
 const beveragesContainer = document.querySelector(".beverages");
 beveragesContainer.classList.add("menu-container");
+const cartContainer = document.querySelector(".nav-list");
+// const createCart = () => {
+//   const newItem = document.createElement("a");
+//   const cart = document.createElement("i");
+//   cart.classList.add("fa-solid", "fa-cart-shopping");
+//   newItem.append(cart);
+//   cartContainer.append(newItem);
+// };
+// createCart();
+// //<i class="fa-light fa-cart-shopping"></i>
 
 const createAppetizerItems = () => {
   appetizers.forEach((item) => {
