@@ -83,8 +83,6 @@ const mainContainer = document.querySelector("main");
 const modal = document.getElementById("cartModal");
 const openModalBtn = document.getElementById("modal");
 
-// const closeBtn = document.querySelector("closeCart");
-
 const closeBtn = document.querySelector(".closeCart");
 
 const updatedCart = document.querySelector(".cart");
@@ -92,6 +90,7 @@ const updatedCart = document.querySelector(".cart");
 const cart = [];
 
 const createItems = (container, array, category) => {
+  container.innerHTML = "";
   array.forEach((item, i) => {
     const newItem = document.createElement("li");
     newItem.classList.add(category);
@@ -103,16 +102,20 @@ const createItems = (container, array, category) => {
     itemPriceParagraph.textContent = `$${item.itemPrice}`;
     itemImgParagraph.setAttribute("src", item.itemImg);
     itemImgParagraph.classList.add("image");
-    const cartPlus = document.createElement("i");
-    cartPlus.classList.add("fa-solid", "fa-circle-plus");
-    cartPlus.setAttribute("data-index", i);
-    cartPlus.setAttribute("data-category", category);
+    const icon = document.createElement("i");
+    if (category === "cart") {
+      icon.classList.add("fa-solid", "fa-circle-xmark");
+    } else {
+      icon.classList.add("fa-solid", "fa-circle-plus");
+    }
+    icon.setAttribute("data-index", i);
+    icon.setAttribute("data-category", category);
 
     newItem.append(
       itemImgParagraph,
       itemNameParagraph,
       itemPriceParagraph,
-      cartPlus
+      icon
     );
     newItem.setAttribute("data-index", i);
     container.append(newItem);
@@ -139,53 +142,19 @@ mainContainer.addEventListener("click", (e) => {
   }
   console.log(cart);
 });
-// openModalBtn.onclick = function (event) {
-//   modal.style.display = "block";
-// };
-// closeBtn.onclick = function () {
-//   modal.style.display = "none";
-// };
-
-const cartItems = (container, array, category) => {
-  array.forEach((item, i) => {
-    const newItem = document.createElement("li");
-    newItem.classList.add(category);
-
-    const itemNameParagraph = document.createElement("p");
-    const itemPriceParagraph = document.createElement("p");
-    const itemImgParagraph = document.createElement("img");
-    itemNameParagraph.textContent = item.itemName;
-    itemPriceParagraph.textContent = `$${item.itemPrice}`;
-    itemImgParagraph.setAttribute("src", item.itemImg);
-    itemImgParagraph.classList.add("image");
-
-    const cartMinus = document.createElement("i");
-    cartMinus.classList.add("fa-solid", "fa-circle-xmark");
-    cartMinus.setAttribute("data-index", i);
-    cartMinus.setAttribute("data-category", category);
-
-    newItem.append(
-      itemImgParagraph,
-      itemNameParagraph,
-      itemPriceParagraph,
-      cartMinus
-    );
-
-    newItem.append(itemImgParagraph, itemNameParagraph, itemPriceParagraph);
-
-    newItem.setAttribute("data-index", i);
-    container.append(newItem);
-    cartMinus.addEventListener("click", () => {
-      newItem.remove();
-    });
-  });
-};
 let sum = 0;
 const subTotal = document.querySelector(".subtotal");
 openModalBtn.addEventListener("click", () => {
   modal.style.display = "block";
-  cartItems(updatedCart, cart);
+  createItems(updatedCart, cart, "cart");
 });
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
+});
+modal.addEventListener("click", (e) => {
+  if (e.target.classList.contains("fa-circle-xmark")) {
+    const index = e.target.getAttribute("data-index");
+    cart.splice(index, 1);
+    createItems(updatedCart, cart, "cart");
+  }
 });
