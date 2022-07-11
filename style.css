@@ -100,9 +100,10 @@ a {
 .modal-content {
   background-color: #f4f4f4;
   padding: 20px;
-  width: 100vh;
-  height: 50vh;
+  width: 80vh;
+  height: 80vh;
   box-shadow: 0 7px 7px 0 rgba(0, 0, 0, 0.3);
+  /* overflow-y: initial; */
 }
 
 .cart {
@@ -120,4 +121,13 @@ a {
   color: red;
   text-decoration: none;
   cursor: pointer;
+}
+.cart {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 80vh;
+  overflow-y: auto;
 }
