@@ -158,6 +158,7 @@ const cartItems = (container, array, category) => {
     itemPriceParagraph.textContent = `$${item.itemPrice}`;
     itemImgParagraph.setAttribute("src", item.itemImg);
     itemImgParagraph.classList.add("image");
+
     const cartMinus = document.createElement("i");
     cartMinus.classList.add("fa-solid", "fa-circle-xmark");
     cartMinus.setAttribute("data-index", i);
@@ -169,6 +170,9 @@ const cartItems = (container, array, category) => {
       itemPriceParagraph,
       cartMinus
     );
+
+    newItem.append(itemImgParagraph, itemNameParagraph, itemPriceParagraph);
+
     newItem.setAttribute("data-index", i);
     container.append(newItem);
     cartMinus.addEventListener("click", () => {
