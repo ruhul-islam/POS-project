@@ -80,6 +80,10 @@ const beveragesContainer = document.querySelector(".beverages");
 beveragesContainer.classList.add("menu-container");
 const mainContainer = document.querySelector("main");
 
+const modal = document.getElementById("cartModal");
+const openModalBtn = document.getElementById("modal");
+const closeBtn = document.querySelector("closeCart");
+
 const cart = [];
 
 const createItems = (container, array, category) => {
@@ -130,3 +134,10 @@ mainContainer.addEventListener("click", (e) => {
   }
   console.log(cart);
 });
+openModalBtn.onclick = function (event) {
+  event.preventDefault();
+  modal.style.display = "block";
+};
+closeBtn.onclick = function () {
+  modal.style.display = "none";
+};

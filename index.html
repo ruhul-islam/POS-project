@@ -20,7 +20,7 @@
             ><li>Home</li>
           <a href
             ><li>Contact Us</li>
-          <a href><li><i class="fa-solid fa-cart-shopping"></i></li></a>
+          <a href id = "modal"><li><i class="fa-solid fa-cart-shopping"></i></li></a>
         </ul>
       </nav>
     </header>
@@ -34,7 +34,12 @@
       <h2>Beverages</h2>
       <ul class = "beverages"></ul>
     </main>
-    <div class="addedItems modal hide"></div>
+    <div id="cartModal" class="modal">
+      <div class="modal-content">
+        <span class = "closeCart">&times;</span>
+        <h1>Your Cart</h1>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
