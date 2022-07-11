@@ -83,6 +83,7 @@ const mainContainer = document.querySelector("main");
 const modal = document.getElementById("cartModal");
 const openModalBtn = document.getElementById("modal");
 const closeBtn = document.querySelector("closeCart");
+const updatedCart = document.querySelector(".cart");
 
 const cart = [];
 
@@ -143,6 +144,5 @@ mainContainer.addEventListener("click", (e) => {
 
 openModalBtn.addEventListener("click", () => {
   modal.style.display = "block";
-  const addCart = document.createElement("ul");
-  cart.append(newItem);
+  createItems(updatedCart, cart);
 });
