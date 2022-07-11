@@ -134,10 +134,15 @@ mainContainer.addEventListener("click", (e) => {
   }
   console.log(cart);
 });
-openModalBtn.onclick = function (event) {
-  event.preventDefault();
+// openModalBtn.onclick = function (event) {
+//   modal.style.display = "block";
+// };
+// closeBtn.onclick = function () {
+//   modal.style.display = "none";
+// };
+
+openModalBtn.addEventListener("click", () => {
   modal.style.display = "block";
-};
-closeBtn.onclick = function () {
-  modal.style.display = "none";
-};
+  const addCart = document.createElement("ul");
+  cart.append(newItem);
+});
