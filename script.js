@@ -146,7 +146,7 @@ mainContainer.addEventListener("click", (e) => {
 //   modal.style.display = "none";
 // };
 
-const cartItems = (container, array) => {
+const cartItems = (container, array, category) => {
   array.forEach((item, i) => {
     const newItem = document.createElement("li");
     newItem.classList.add(category);
@@ -158,7 +158,6 @@ const cartItems = (container, array) => {
     itemPriceParagraph.textContent = item.itemPrice;
     itemImgParagraph.setAttribute("src", item.itemImg);
     itemImgParagraph.classList.add("image");
-
     newItem.append(itemImgParagraph, itemNameParagraph, itemPriceParagraph);
     newItem.setAttribute("data-index", i);
     container.append(newItem);
