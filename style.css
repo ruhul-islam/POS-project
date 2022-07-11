@@ -1,5 +1,3 @@
-/* resets */
-
 body,
 h1,
 p,
@@ -10,7 +8,7 @@ img {
   padding: 0;
 }
 
-header {
+.company {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -95,6 +93,7 @@ a {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  justify-content: space-between;
 }
 
 .modal-content {
@@ -105,11 +104,6 @@ a {
   box-shadow: 0 7px 7px 0 rgba(0, 0, 0, 0.3);
   /* overflow-y: initial; */
 }
-
-.cart {
-  /* width: 25%; */
-}
-
 .closeCart {
   color: black;
   float: right;
@@ -124,10 +118,36 @@ a {
 }
 .cart {
   list-style: none;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: row; */
   justify-content: space-around;
   flex-wrap: wrap;
-  height: 80vh;
+  height: 60vh;
   overflow-y: auto;
+}
+
+.cart li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.cart img {
+  height: 100px;
+  border-radius: 5%;
+  width: 15vh;
+}
+
+.cartModal .modal-content .ul {
+  background-color: #fed9ff;
+  width: 80vh;
+  height: 40vh;
+  overflow: auto;
+  text-align: justify;
+  padding: 20px;
+}
+
+.viewcart {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }

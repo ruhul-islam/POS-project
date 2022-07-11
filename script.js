@@ -4,13 +4,13 @@ const appetizers = [
   {
     itemImg: "assets/hummus-pita.jpg",
     itemName: "Hummus & Pita",
-    itemPrice: 6.5,
+    itemPrice: (6.5).toFixed(2),
     count: 1,
   },
   {
     itemImg: "assets/charcuterie.jpg",
     itemName: "Charcuterie Board",
-    itemPrice: 11.5,
+    itemPrice: (11.5).toFixed(2),
     count: 1,
   },
 ];
@@ -18,19 +18,19 @@ const entrees = [
   {
     itemImg: "assets/lamb-chops.jpg",
     itemName: "Lamb Chops",
-    itemPrice: 22.5,
+    itemPrice: (22.5).toFixed(2),
     count: 1,
   },
   {
     itemImg: "assets/new-york-strip.jpg",
     itemName: "New York Strip",
-    itemPrice: 30.5,
+    itemPrice: (30.5).toFixed(2),
     count: 1,
   },
   {
     itemImg: "assets/salmon.jpg",
     itemName: "Salmon",
-    itemPrice: 19.5,
+    itemPrice: (19.5).toFixed(2),
     count: 1,
   },
 ];
@@ -38,19 +38,19 @@ const desserts = [
   {
     itemImg: "assets/baklava.jpg",
     itemName: "Baklava",
-    itemPrice: 5,
+    itemPrice: (5.0).toFixed(2),
     count: 1,
   },
   {
     itemImg: "assets/hot-fudge-brownie.jpg",
     itemName: "Hot Fudge Brownie",
-    itemPrice: 6.5,
+    itemPrice: (6.5).toFixed(2),
     count: 1,
   },
   {
     itemImg: "assets/cheesecake.jpg",
     itemName: "Cheesecake",
-    itemPrice: 8,
+    itemPrice: (8.0).toFixed(2),
     count: 1,
   },
 ];
@@ -59,13 +59,13 @@ const beverages = [
   {
     itemImg: "assets/water-bottle.jpg",
     itemName: "Bottled Water",
-    itemPrice: 1.5,
+    itemPrice: (1.5).toFixed(2),
     count: 1,
   },
   {
     itemImg: "assets/bottled-beer.jpg",
     itemName: "Bottled Beer",
-    itemPrice: 4,
+    itemPrice: (4.0).toFixed(2),
     count: 1,
   },
 ];
@@ -100,7 +100,7 @@ const createItems = (container, array, category) => {
     const itemPriceParagraph = document.createElement("p");
     const itemImgParagraph = document.createElement("img");
     itemNameParagraph.textContent = item.itemName;
-    itemPriceParagraph.textContent = item.itemPrice;
+    itemPriceParagraph.textContent = `$${item.itemPrice}`;
     itemImgParagraph.setAttribute("src", item.itemImg);
     itemImgParagraph.classList.add("image");
     const cartPlus = document.createElement("i");
@@ -146,7 +146,7 @@ mainContainer.addEventListener("click", (e) => {
 //   modal.style.display = "none";
 // };
 
-const cartItems = (container, array) => {
+const cartItems = (container, array, category) => {
   array.forEach((item, i) => {
     const newItem = document.createElement("li");
     newItem.classList.add(category);
@@ -155,18 +155,33 @@ const cartItems = (container, array) => {
     const itemPriceParagraph = document.createElement("p");
     const itemImgParagraph = document.createElement("img");
     itemNameParagraph.textContent = item.itemName;
-    itemPriceParagraph.textContent = item.itemPrice;
+    itemPriceParagraph.textContent = `$${item.itemPrice}`;
     itemImgParagraph.setAttribute("src", item.itemImg);
     itemImgParagraph.classList.add("image");
+    const cartMinus = document.createElement("i");
+    cartMinus.classList.add("fa-solid", "fa-circle-xmark");
+    cartMinus.setAttribute("data-index", i);
+    cartMinus.setAttribute("data-category", category);
 
-    newItem.append(itemImgParagraph, itemNameParagraph, itemPriceParagraph);
+    newItem.append(
+      itemImgParagraph,
+      itemNameParagraph,
+      itemPriceParagraph,
+      cartMinus
+    );
     newItem.setAttribute("data-index", i);
     container.append(newItem);
+    cartMinus.addEventListener("click", () => {
+      newItem.remove();
+    });
   });
 };
-// let sum = 0;
-// const subTotal = document.querySelector(".subtotal");
+let sum = 0;
+const subTotal = document.querySelector(".subtotal");
 openModalBtn.addEventListener("click", () => {
   modal.style.display = "block";
   cartItems(updatedCart, cart);
+});
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
 });
