@@ -19,6 +19,10 @@ h1 {
   padding: 10px;
 }
 
+li {
+  list-style: none;
+}
+
 .nav-list {
   display: flex;
   margin-right: 20px;
@@ -130,6 +134,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  height: 20vh;
 }
 
 .cart img {
