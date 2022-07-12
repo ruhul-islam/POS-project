@@ -12,7 +12,7 @@
     <title>POS</title>
   </head>
   <body>
-    <header class="company">
+    <header>
       <h1>Company Name</h1>
       <nav>
         <ul class="nav-list">
@@ -37,13 +37,19 @@
     <div id="cartModal" class="modal">
       <div class="modal-content">
         <span class="closeCart">&times;</span>
-        <header class="viewcart"><h1>View Your Cart</h1></header>
-
+        <h1>View Your Cart</h1>
         <ul class="cart"></ul>
-        <p class="subtotal">Price</p>
-        <p>Tax</p>
-        <p>Total Price</p>
+        <p class="subtotal">Price:</p>
+        <p class="tax">Tax</p>
+        <p class="total">Total Price</p>
+        <button class="checkout-button">Cash Payment</button>
+        <a href="">Card</a>
       </div>
+    </div>
+    <div class="modalTwo hide">
+      <form>
+        <h2>Total:</h2>
+      </form>
     </div>
     <script src="script.js"></script>
   </body>

@@ -86,6 +86,9 @@ const openModalBtn = document.getElementById("modal");
 const closeBtn = document.querySelector(".closeCart");
 
 const updatedCart = document.querySelector(".cart");
+const subTotal = document.querySelector(".subtotal");
+const tax = document.querySelector(".tax");
+const total = document.querySelector(".total");
 
 const cart = [];
 
@@ -142,12 +145,18 @@ mainContainer.addEventListener("click", (e) => {
   }
   console.log(cart);
 });
-let sum = 0;
-const subTotal = document.querySelector(".subtotal");
-openModalBtn.addEventListener("click", () => {
+
+const updatePrice = () => {
+  subTotal.innerHTML = "Sub total: $";
+  tax.innerHTML = "Sales tax: $";
+  total.innerHTML = "Total: $";
   modal.style.display = "block";
   createItems(updatedCart, cart, "cart");
-});
+  subTotal.append(priceFunction(cart).subtotal.toFixed(2));
+  tax.append(priceFunction(cart).tax.toFixed(2));
+  total.append(priceFunction(cart).total.toFixed(2));
+};
+openModalBtn.addEventListener("click", updatePrice);
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });
@@ -155,6 +164,29 @@ modal.addEventListener("click", (e) => {
   if (e.target.classList.contains("fa-circle-xmark")) {
     const index = e.target.getAttribute("data-index");
     cart.splice(index, 1);
-    createItems(updatedCart, cart, "cart");
+    updatePrice();
   }
 });
+
+const taxRate = 0.06; // 6%
+
+const priceFunction = (array) => {
+  const priceCart = array.reduce(
+    (acc = {}, item = {}) => {
+      const itemTotal = parseFloat(item.itemPrice);
+      const itemTotalTax = parseFloat((itemTotal * taxRate).toFixed(2));
+
+      acc.subtotal = parseFloat((acc.subtotal + itemTotal).toFixed(2));
+      acc.tax = parseFloat((acc.tax + itemTotalTax).toFixed(2));
+      acc.total = parseFloat((acc.total + itemTotal + itemTotalTax).toFixed(2));
+
+      return acc;
+    },
+    {
+      subtotal: 0,
+      tax: 0,
+      total: 0,
+    }
+  );
+  return priceCart;
+};
