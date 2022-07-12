@@ -89,6 +89,7 @@ const updatedCart = document.querySelector(".cart");
 const subTotal = document.querySelector(".subtotal");
 const tax = document.querySelector(".tax");
 const total = document.querySelector(".total");
+const openPayment = document.getElementById(".checkout");
 
 const cart = [];
 
@@ -190,3 +191,6 @@ const priceFunction = (array) => {
   );
   return priceCart;
 };
+openPayment.addEventListener("click", () => {
+  modal.style.display = block;
+});
