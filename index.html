@@ -50,12 +50,14 @@
           <p class="tax">Tax</p>
           <p class="total">Total Price</p>
           <button class="checkout-button show">Pay with card</button>
-          <button class="checkout-button show">Pay with cash</button>
+          <button class="checkout-button showCash">Pay with cash</button>
         </footer>
       </div>
     </div>
     <div class="modalTwo hide">
       <form class="card-form">
+        <span class="closeCart closing">&times;</span>
+        <h3>Payment Information</h3>
         <!-- <h3>Total</h3> -->
 
         <div class="row">
@@ -206,6 +208,12 @@
             </div>
           </div>
         </div>
+      </form>
+    </div>
+    <div class="modalCash hide">
+      <form class="card-form">
+        <span class="closeCart closingCash">&times;</span>
+        <h3>Payment Information</h3>
       </form>
     </div>
     <script src="script.js"></script>

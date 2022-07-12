@@ -192,9 +192,20 @@ const priceFunction = (array) => {
 };
 
 const showBtn = document.querySelector(".show");
+const showCashBtn = document.querySelector(".showCash");
+const closingBtn = document.querySelector(".closing");
+const closingCashBtn = document.querySelector(".closingCash");
 const modalTwo = document.querySelector(".modalTwo");
+const modalCash = document.querySelector(".modalCash");
 
 const toggleHide = () => {
   modalTwo.classList.toggle("hide");
 };
+const toggleHideCash = () => {
+  modalCash.classList.toggle("hide");
+};
 showBtn.addEventListener("click", toggleHide);
+closingBtn.addEventListener("click", toggleHide);
+
+showCashBtn.addEventListener("click", toggleHideCash);
+closingCashBtn.addEventListener("click", toggleHideCash);
