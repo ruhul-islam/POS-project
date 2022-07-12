@@ -58,7 +58,6 @@
       <form class="card-form">
         <span class="closeCart closing">&times;</span>
         <h3>Payment Information</h3>
-        <!-- <h3>Total</h3> -->
 
         <div class="row">
           <div class="col-75">
@@ -182,7 +181,11 @@
                   <input type="checkbox" checked="checked" name="sameadr" />
                   Shipping address same as billing
                 </label>
-                <input type="submit" value="Continue to checkout" class="btn" />
+                <input
+                  type="submit"
+                  value="Continue to checkout"
+                  class="btn receipt"
+                />
               </form>
             </div>
           </div>
@@ -191,9 +194,17 @@
       </form>
     </div>
     <div class="modalCash hide">
-      <form class="card-form">
+      <form class="cash-form">
         <span class="closeCart closingCash">&times;</span>
         <h3>Payment Information</h3>
+        <label for="tendered-amount">Amount Paid</label>
+        <input
+          type="number"
+          name="tendered-amount"
+          id="tendered-amount"
+          value="100"
+        />
+        <button class="btn receipt">Continue to checkout</button>
       </form>
     </div>
     <script src="script.js"></script>

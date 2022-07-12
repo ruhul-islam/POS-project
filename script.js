@@ -197,12 +197,26 @@ const closingBtn = document.querySelector(".closing");
 const closingCashBtn = document.querySelector(".closingCash");
 const modalTwo = document.querySelector(".modalTwo");
 const modalCash = document.querySelector(".modalCash");
+const cashForm = document.querySelector(".cash-form");
+const tenderedAmount = document.querySelector("#tendered-amount").value;
 
 const toggleHide = () => {
   modalTwo.classList.toggle("hide");
 };
 const toggleHideCash = () => {
+  console.log(total);
   modalCash.classList.toggle("hide");
+  const totalParagraph = document.createElement("p");
+  totalParagraph.textContent = `Total: $${priceFunction(cart).total.toFixed(
+    2
+  )}`;
+  const tenderedAmountParagraph = document.createElement("p");
+  tenderedAmountParagraph.textContent = `Change: $${
+    tenderedAmount - priceFunction(cart).total.toFixed(2)
+  }`;
+
+  cashForm.append(totalParagraph);
+  cashForm.append(tenderedAmountParagraph);
 };
 showBtn.addEventListener("click", toggleHide);
 closingBtn.addEventListener("click", toggleHide);
