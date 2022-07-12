@@ -89,7 +89,6 @@ const updatedCart = document.querySelector(".cart");
 const subTotal = document.querySelector(".subtotal");
 const tax = document.querySelector(".tax");
 const total = document.querySelector(".total");
-const openPayment = document.getElementById(".checkout");
 
 const cart = [];
 
@@ -191,6 +190,11 @@ const priceFunction = (array) => {
   );
   return priceCart;
 };
-openPayment.addEventListener("click", () => {
-  modal.style.display = block;
-});
+
+const showBtn = document.querySelector(".show");
+const modalTwo = document.querySelector(".modalTwo");
+
+const toggleHide = () => {
+  modalTwo.classList.toggle("hide");
+};
+showBtn.addEventListener("click", toggleHide);
