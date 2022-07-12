@@ -8,29 +8,35 @@ img {
   padding: 0;
 }
 
-header {
+.company {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: red;
+  background-color: black;
+  padding: 15px;
+  box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.4);
+  margin-bottom: 30px;
 }
-h1 {
-  margin-left: 20px;
+.brand {
   padding: 10px;
-}
-
-li {
-  list-style: none;
+  color: white;
+  font-family: "Italiana", serif;
+  padding: 10px;
 }
 
 .nav-list {
   display: flex;
   margin-right: 20px;
+  list-style: none;
+  color: white;
+  font-family: "Italiana", serif;
 }
 
 .nav-list li {
   padding: 20px;
-  color: black;
+}
+.nav-list li a {
+  color: white;
 }
 
 main {
@@ -39,9 +45,12 @@ main {
   align-items: center;
 }
 h2 {
-  background-color: yellow;
+  /* background-color: yellow; */
   width: 100%;
   text-align: center;
+  font-family: "Italiana", serif;
+  size: 35px;
+  border-bottom: 1px solid gray;
 }
 .menu-container {
   display: flex;
@@ -52,10 +61,10 @@ h2 {
 }
 
 .menu-container li {
-  border: 1px dashed black;
+  /* border: 1px dashed black; */
   text-align: center;
   box-sizing: border-box;
-  padding: 2px;
+  padding: 15px;
   margin: 2px;
   display: flex;
   flex-direction: column;
