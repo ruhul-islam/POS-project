@@ -217,11 +217,13 @@ footer {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
+  overflow-y: auto;
 }
 .modalCash {
   position: fixed;
@@ -252,12 +254,14 @@ form {
   box-sizing: border-box;
 }
 
-.card-form .row {
+.row {
   display: -ms-flexbox; /* IE10 */
   display: flex;
   -ms-flex-wrap: wrap; /* IE10 */
   flex-wrap: wrap;
+
   margin: 0 -16px;
+  overflow-x: auto;
 }
 
 .card-form .col-25 {
@@ -281,12 +285,12 @@ form {
   padding: 0 16px;
 }
 
-/* .card-form .container {
+.card-form .container {
   background-color: #f2f2f2;
   padding: 5px 20px 15px 20px;
   border: 1px solid lightgrey;
   border-radius: 3px;
-} */
+}
 
 input[type="text"] {
   width: 100%;
@@ -327,11 +331,7 @@ label {
   color: #2196f3;
 }
 
-.card-form hr {
-  border: 1px solid lightgrey;
-}
-
-.card-form span.price {
+.card-form span {
   float: right;
   color: grey;
 }
