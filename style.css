@@ -51,6 +51,7 @@ h2 {
   font-family: "Italiana", serif;
   size: 35px;
   border-bottom: 1px solid gray;
+  width: 20vh;
 }
 .menu-container {
   display: flex;
@@ -164,4 +165,47 @@ a {
 .viewcart {
   padding-bottom: 10px;
   margin-bottom: 10px;
+}
+.fa-circle-plus:hover {
+  color: rgb(65, 231, 65);
+  cursor: pointer;
+}
+.fa-circle-xmark:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.subtotal,
+.tax,
+.total {
+  padding: 5px;
+}
+
+.checkout-button {
+  width: 40%;
+  height: 35px;
+  background-color: black;
+  color: white;
+  border-radius: 15px;
+}
+.checkout-button:hover {
+  cursor: pointer;
+}
+.subtotal {
+  border-top: 1px solid gray;
+  width: 90%;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.viewcart {
+  padding-bottom: 30px;
+}
+
+.fa-cart-shopping:hover {
+  color: red;
 }
